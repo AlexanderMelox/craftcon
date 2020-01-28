@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
 import Header from './header';
 import SEO from './seo';
@@ -56,14 +57,23 @@ const globalStyles = css`
   }
 `;
 
+const StyledLayout = styled.div`
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem;
+
+  > * {
+    grid-column: 2 / 3;
+  }
+`;
+
 const Layout = ({ children }) => {
   return (
-    <>
+    <StyledLayout>
       <Global styles={globalStyles} />
       <SEO />
       <Header />
       <main>{children}</main>
-    </>
+    </StyledLayout>
   );
 };
 
