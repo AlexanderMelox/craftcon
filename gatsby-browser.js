@@ -5,3 +5,10 @@
  */
 
 // You can delete this file if you're not using it
+
+import React from 'react';
+import { StateProvider } from './src/store';
+
+export const wrapRootElement = ({ element }) => {
+  return <StateProvider>{element}</StateProvider>;
+};
