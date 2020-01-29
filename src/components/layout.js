@@ -9,7 +9,9 @@ import SEO from './seo';
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap');
 
-  * {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -27,6 +29,7 @@ const globalStyles = css`
     line-height: 1.4;
     background-color: #000;
     color: #eee;
+    overflow-y: hidden;
 
     /* removes margin top for main gatsby div */
     > div {
@@ -58,12 +61,7 @@ const globalStyles = css`
 `;
 
 const StyledLayout = styled.div`
-  display: grid;
-  grid-template-columns: 1rem 1fr 1rem;
-
-  > * {
-    grid-column: 2 / 3;
-  }
+  min-height: 100vh;
 `;
 
 const Layout = ({ children }) => {
@@ -72,7 +70,13 @@ const Layout = ({ children }) => {
       <Global styles={globalStyles} />
       <SEO />
       <Header />
-      <main>{children}</main>
+      <main
+        css={css`
+          margin-top: 0;
+        `}
+      >
+        {children}
+      </main>
     </StyledLayout>
   );
 };

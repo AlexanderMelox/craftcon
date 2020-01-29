@@ -5,11 +5,11 @@ import { useSiteMetadata } from '../hooks';
 
 const StyledHeader = styled.header`
   text-align: center;
-  padding: 5rem 0;
+  padding: 1rem 0;
 `;
 
 const Title = styled.h1`
-  font-size: 10vw;
+  font-size: 5rem;
   text-transform: uppercase;
   letter-spacing: 3px;
 `;
