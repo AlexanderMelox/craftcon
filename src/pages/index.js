@@ -68,10 +68,7 @@ const sketch = p => {
     }
   };
 
-  p.draw = function() {
-    // p.background(canvas.defaultBackgroundColor);
-    console.log(selectedShape);
-  };
+  p.draw = function() {};
 
   p.mousePressed = function() {
     p.image(images[selectedShape], p.mouseX, p.mouseY);
