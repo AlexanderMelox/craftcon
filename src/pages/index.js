@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
-import { store } from '../store';
-import P5Wrapper from 'react-p5-wrapper';
+import Sketch from '../components/Sketch';
 import { useCloudinarySVGImages } from '../hooks';
+import sketch from '../utils/p5/sketch';
 
 const Poster = styled.section`
   display: grid;
@@ -32,55 +32,6 @@ const SVGImage = styled.img`
   }
 `;
 
-// p5 variables
-const images = [];
-
-const sketch = p => {
-  const canvas = {
-    width: (window.innerWidth / 3) * 2,
-    height: window.innerHeight - 142,
-    defaultBackgroundColor: 50,
-  };
-
-  let selectedShape;
-
-  // preloads all the svg images to use
-  p.preload = function() {
-    for (let i = 1; i <= 7; i++) {
-      let img = p.loadImage(
-        `https://res.cloudinary.com/alexander-melo-assets/image/upload/v1580320841/Craftcon-assets/images/${i}.svg`
-      );
-      images.push(img);
-    }
-    console.log('Images successfully loaded', images);
-  };
-
-  p.setup = function() {
-    p.createCanvas(canvas.width, canvas.height);
-    p.background(canvas.defaultBackgroundColor);
-    p.imageMode(p.CENTER);
-    selectedShape = 0;
-  };
-
-  p.myCustomRedrawAccordingToNewPropsHandler = function(newProps) {
-    if (newProps.selectedShape) {
-      selectedShape = newProps.selectedShape;
-    }
-  };
-
-  p.draw = function() {};
-
-  p.mousePressed = function() {
-    p.image(images[selectedShape], p.mouseX, p.mouseY);
-  };
-
-  p.windowResized = function() {
-    console.log('resizing');
-    p.resizeCanvas(canvas.width, canvas.height, false);
-    p.background(canvas.defaultBackgroundColor);
-  };
-};
-
 const Index = () => {
   const [selectedShape, setSelectedShape] = useState(0);
   const svgImages = useCloudinarySVGImages();
@@ -88,7 +39,7 @@ const Index = () => {
   return (
     <Layout>
       <Poster>
-        <P5Wrapper sketch={sketch} selectedShape={selectedShape} />
+        <Sketch sketch={sketch} selectedShape={selectedShape} />
         <Controls>
           <h2>Choose your shape</h2>
           <SVGImageContainer>
