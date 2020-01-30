@@ -38,10 +38,19 @@ const sketch = p => {
     }
   };
 
-  p.draw = function() {};
+  p.draw = function() {
+    // p.background(canvas.defaultBackgroundColor);
+    // p.image(images[selectedShape], p.mouseX, p.mouseY);
+  };
 
   p.mousePressed = function() {
     p.image(images[selectedShape], p.mouseX, p.mouseY);
+  };
+
+  p.mouseDragged = function() {
+    if (p.frameCount % 10 === 1) {
+      p.image(images[selectedShape], p.mouseX, p.mouseY);
+    }
   };
 
   p.windowResized = function() {
