@@ -14,9 +14,22 @@ const globalStyles = css`
     --red: #ff4924;
     --yellow: #fef202;
     --blue: #0098c1;
+
+    --font-family: 'Monument Extended', sans-serif;
   }
 
-  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap');
+  @font-face {
+    font-family: 'Monument Extended';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/MonumentExtended-Regular.otf') format('otf');
+  }
+  @font-face {
+    font-family: 'Monument Extended';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/MonumentExtended-Ultrabold.otf') format('otf');
+  }
 
   *,
   *::before,
@@ -34,11 +47,12 @@ const globalStyles = css`
   html {
     margin: 0;
     color: #555;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: var(--font-family);
     line-height: 1.4;
-    background-color: #000;
+    background-color: var(--black);
     color: #eee;
     overflow-y: hidden;
+    font-weight: 400;
 
     /* removes margin top for main gatsby div */
     > div {
@@ -53,6 +67,7 @@ const globalStyles = css`
     h6 {
       color: #fefefe;
       line-height: 1.1;
+      font-weight: 400;
 
       + * {
         margin-top: 0.5rem;
