@@ -7,6 +7,15 @@ import Header from './header';
 import SEO from './seo';
 
 const globalStyles = css`
+  :root {
+    /* colors */
+    --black: #282828;
+    --white: #ffffff;
+    --red: #ff4924;
+    --yellow: #fef202;
+    --blue: #0098c1;
+  }
+
   @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap');
 
   *,

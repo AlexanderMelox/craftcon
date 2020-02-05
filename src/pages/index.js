@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
-import Sketch from '../components/Sketch';
-import { useCloudinarySVGImages } from '../hooks';
-import sketch from '../utils/p5/sketch';
 
 const Poster = styled.section`
   display: grid;
@@ -34,23 +31,8 @@ const SVGImage = styled.img`
 
 const Index = () => {
   const [selectedShape, setSelectedShape] = useState(0);
-  const svgImages = useCloudinarySVGImages();
 
-  return (
-    <Layout>
-      <Poster>
-        <Sketch sketch={sketch} selectedShape={selectedShape} />
-        <Controls>
-          <h2>Choose your shape</h2>
-          <SVGImageContainer>
-            {svgImages.map((url, i) => (
-              <SVGImage src={url} onClick={() => setSelectedShape(i)} />
-            ))}
-          </SVGImageContainer>
-        </Controls>
-      </Poster>
-    </Layout>
-  );
+  return <Layout></Layout>;
 };
 
 export default Index;
