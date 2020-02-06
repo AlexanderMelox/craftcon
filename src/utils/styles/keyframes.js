@@ -7,7 +7,7 @@ export const moveAround1 = keyframes`
   }
   25% {
     transform: translate(1rem, 1.5rem) rotate(20deg);
-    opacity: .1;
+    opacity: .4;
   }
   50% {
     transform: translate(-.1rem, 0) rotate(-10deg);
@@ -16,11 +16,11 @@ export const moveAround1 = keyframes`
   
   75% {
     transform: translate(0, 1rem) rotate(10deg);
-    opacity: .9;
+    opacity: .5;
   }
   
   100% {
     transform: translate(.7rem, -.4rem) rotate(0);
-    opacity: .9;
+    opacity: .8;
   }
 `;

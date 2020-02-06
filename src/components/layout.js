@@ -34,6 +34,11 @@ const globalStyles = css`
     src: url('../fonts/MonumentExtended-Ultrabold.otf') f;
   }
 
+  ::selection {
+    color: var(--blue);
+    background-color: var(--yellow);
+  }
+
   *,
   *::before,
   *::after {
@@ -46,6 +51,7 @@ const globalStyles = css`
     background-image: url('/paper.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
     z-index: -9999;
   }
@@ -55,9 +61,9 @@ const globalStyles = css`
     margin: 0;
     font-family: var(--font-family);
     line-height: 1.4;
-    background-color: var(--white);
     color: var(--black);
     font-weight: 400;
+    min-height: 100vh;
 
     /* removes margin top for main gatsby div */
     > div {
@@ -94,7 +100,7 @@ const StyledLayout = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   padding: 0 1rem;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const Layout = ({ children }) => {
