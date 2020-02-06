@@ -16,6 +16,7 @@ export const useSiteMetadata = () => {
   return data.site.siteMetadata;
 };
 
+// TODO: Add the new images to cloudinary
 export const useCloudinarySVGImages = () => {
   const images = [];
   for (let i = 1; i <= 7; i++) {

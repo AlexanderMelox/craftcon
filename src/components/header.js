@@ -1,31 +1,50 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
-import { useSiteMetadata } from '../hooks';
+import logo from '../images/logo.svg';
+import { moveAround1 } from '../utils/styles/keyframes';
 
 const StyledHeader = styled.header`
   text-align: center;
-  padding: 1rem 0;
+  padding: 2rem 0;
+  position: relative;
+
+  /* red rectangle */
+  ::before {
+    content: url('/svg/Red_largeRectangleGradient.svg');
+    display: block;
+    position: absolute;
+    transform: rotate(90deg);
+    z-index: 1;
+    top: -3px;
+    left: 3.1rem;
+    width: calc(1rem + 20vw);
+  }
+
+  /* half circle */
+  ::after {
+    content: url('/svg/Blue_semicircle.svg');
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+    left: 55%;
+    width: calc(2rem + 5vw);
+    transform: rotate(90deg);
+    animation: ${moveAround1} 50s ease-in-out infinite alternate both;
+  }
 `;
 
-const Title = styled.h1`
-  font-size: 5rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-`;
-
-const Lead = styled.p`
-  font-style: italic;
-  margin-top: 0;
+const Logo = styled.img`
+  z-index: 10;
+  position: relative;
+  max-width: 100%;
 `;
 
 const Header = () => {
-  const { title } = useSiteMetadata();
-
   return (
     <StyledHeader>
-      <Title>{title}</Title>
-      <Lead>Weird plex, but okay.</Lead>
+      <Logo src={logo} alt="Craftcon" />
     </StyledHeader>
   );
 };
