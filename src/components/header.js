@@ -1,39 +1,48 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
+import logo from '../images/logo.svg';
 
 const StyledHeader = styled.header`
   text-align: center;
-  padding: 1rem 0;
-`;
+  padding: 2rem 0;
+  position: relative;
 
-const Title = styled.h1`
-  font-size: 5rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 3px;
+  /* red rectangle */
+  ::before {
+    content: url('/svg/Red_largeRectangleGradient.svg');
+    display: block;
+    position: absolute;
+    transform: rotate(90deg);
+    z-index: 1;
+    top: -3px;
+    left: 3.1rem;
+    width: calc(1rem + 20vw);
+  }
 
-  @supports (-webkit-text-stroke: 1px black) {
-    span {
-      -webkit-text-stroke: 1px var(--white);
-      -webkit-text-fill-color: var(--black);
-    }
+  /* half circle */
+  ::after {
+    content: url('/svg/Blue_semicircle.svg');
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+    left: 55%;
+    width: calc(2rem + 5vw);
+    transform: rotate(90deg);
   }
 `;
 
-const Lead = styled.p`
-  font-style: italic;
-  font-weight: 400;
-  margin-top: 0;
+const Logo = styled.img`
+  z-index: 10;
+  position: relative;
+  max-width: 100%;
 `;
 
 const Header = () => {
   return (
     <StyledHeader>
-      <Title>
-        Craft<span>Con</span>
-      </Title>
-      <Lead>Weird plex, but okay.</Lead>
+      <Logo src={logo} />
     </StyledHeader>
   );
 };

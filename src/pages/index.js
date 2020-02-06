@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // import styled from '@emotion/styled';
 import Layout from '../components/layout';
 
@@ -30,11 +30,7 @@ import Layout from '../components/layout';
 // `;
 
 const Index = () => {
-  return (
-    <Layout>
-      <h1>CraftCon</h1>
-    </Layout>
-  );
+  return <Layout>index works</Layout>;
 };
 
 export default Index;

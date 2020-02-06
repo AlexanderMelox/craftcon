@@ -15,20 +15,23 @@ const globalStyles = css`
     --yellow: #fef202;
     --blue: #0098c1;
 
-    --font-family: 'Monument Extended', sans-serif;
+    --font-family: 'Questrial', sans-serif;
   }
+
+  /* TODO: Make sure tiff approves of this font for a alternative */
+  @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 
   @font-face {
     font-family: 'Monument Extended';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MonumentExtended-Regular.otf') format('otf');
+    src: url('../fonts/MonumentExtended-Regular.otf');
   }
   @font-face {
     font-family: 'Monument Extended';
     font-style: normal;
     font-weight: bold;
-    src: url('../fonts/MonumentExtended-Ultrabold.otf') format('otf');
+    src: url('../fonts/MonumentExtended-Ultrabold.otf') f;
   }
 
   *,
@@ -39,19 +42,21 @@ const globalStyles = css`
     padding: 0;
   }
 
-  * + * {
-    margin-top: 1rem;
+  body {
+    background-image: url('/paper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    z-index: -9999;
   }
 
   body,
   html {
     margin: 0;
-    color: #555;
     font-family: var(--font-family);
     line-height: 1.4;
-    background-color: var(--black);
-    color: #eee;
-    overflow-y: hidden;
+    background-color: var(--white);
+    color: var(--black);
     font-weight: 400;
 
     /* removes margin top for main gatsby div */
@@ -65,7 +70,7 @@ const globalStyles = css`
     h4,
     h5,
     h6 {
-      color: #fefefe;
+      color: var(--black);
       line-height: 1.1;
       font-weight: 400;
 
@@ -75,7 +80,7 @@ const globalStyles = css`
     }
 
     strong {
-      color: #eee;
+      color: var(--black);
     }
 
     li {
@@ -85,7 +90,9 @@ const globalStyles = css`
 `;
 
 const StyledLayout = styled.div`
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
 `;
 
 const Layout = ({ children }) => {
