@@ -92,6 +92,8 @@ const globalStyles = css`
 const StyledLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  padding: 0 1rem;
   height: 100vh;
 `;
 
@@ -101,13 +103,7 @@ const Layout = ({ children }) => {
       <Global styles={globalStyles} />
       <SEO />
       <Header />
-      <main
-        css={css`
-          margin-top: 0;
-        `}
-      >
-        {children}
-      </main>
+      <main>{children}</main>
     </StyledLayout>
   );
 };

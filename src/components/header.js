@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
 import logo from '../images/logo.svg';
+import { moveAround1 } from '../utils/styles/keyframes';
 
 const StyledHeader = styled.header`
   text-align: center;
@@ -30,6 +31,7 @@ const StyledHeader = styled.header`
     left: 55%;
     width: calc(2rem + 5vw);
     transform: rotate(90deg);
+    animation: ${moveAround1} 50s ease-in-out infinite alternate both;
   }
 `;
 
@@ -42,7 +44,7 @@ const Logo = styled.img`
 const Header = () => {
   return (
     <StyledHeader>
-      <Logo src={logo} />
+      <Logo src={logo} alt="Craftcon" />
     </StyledHeader>
   );
 };
