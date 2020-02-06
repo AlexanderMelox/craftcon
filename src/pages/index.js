@@ -29,24 +29,26 @@ const CanvasImage = styled.img`
   max-width: 100%;
   width: 15rem;
   position: absolute;
+  top: ${props => props.top};
 `;
 
 const Grid = styled(CanvasImage)`
   width: 100%;
 `;
 const Hand = styled(CanvasImage)`
-  width: 50vw;
-  top: 50%;
+  width: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5000;
   transition: all ease-in-out;
 `;
 
-// TODO: move these into graphql data layer you idiot
 const SVGImages = [
   {
     name: 'Black_cross',
+    top: 50,
+    left: 70,
   },
   {
     name: 'Blue_checkerboard',
@@ -80,6 +82,12 @@ const SVGImages = [
   },
 ];
 
+function getRandomPosition() {
+  const top = Math.floor(Math.random() * 100) + 1;
+  const left = Math.floor(Math.random() * 100) + 1;
+  return { top, left };
+}
+
 const Index = () => {
   return (
     <Layout>
@@ -95,9 +103,15 @@ const Index = () => {
       <Canvas>
         <Grid src="/svg/Grid.svg" />
         <Hand src="/hand.png" />
-        {/* {SVGImages.map(svg => (
-          <CanvasImage src={`/svg/${svg.name}.svg`} alt="" />
-        ))} */}
+        {SVGImages.map(svg => (
+          <CanvasImage
+            top={svg.top}
+            left={svg.left}
+            width={svg.width}
+            src={`/svg/${svg.name}.svg`}
+            alt=""
+          />
+        ))}
       </Canvas>
     </Layout>
   );
