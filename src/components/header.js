@@ -2,48 +2,29 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
 import logo from '../images/logo.svg';
+import NavButton from './nav-button';
 import { moveAround1 } from '../utils/styles/keyframes';
 
 const StyledHeader = styled.header`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem 0;
   position: relative;
-
-  /* red rectangle */
-  ::before {
-    content: url('/svg/Red_largeRectangleGradient.svg');
-    display: block;
-    position: absolute;
-    transform: rotate(90deg);
-    z-index: 1;
-    top: -3px;
-    left: 3.1rem;
-    width: calc(1rem + 20vw);
-  }
-
-  /* half circle */
-  ::after {
-    content: url('/svg/Blue_semicircle.svg');
-    display: block;
-    position: absolute;
-    z-index: 1;
-    top: 2rem;
-    left: 55%;
-    width: calc(2rem + 5vw);
-    transform: rotate(90deg);
-    animation: ${moveAround1} 50s ease-in-out infinite alternate both;
-  }
 `;
 
 const Logo = styled.img`
   z-index: 10;
   position: relative;
   max-width: 100%;
+  width: 10rem;
+  margin-left: 1rem;
 `;
 
 const Header = () => {
   return (
     <StyledHeader>
+      <NavButton />
       <Logo src={logo} alt="Craftcon" />
     </StyledHeader>
   );
