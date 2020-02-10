@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const Line = styled.span`
@@ -6,9 +7,9 @@ const Line = styled.span`
   height: 3px;
   background-color: var(--yellow);
   position: relative;
-  z-index: 9500;
+  z-index: 9999;
 
-  ::before {
+  &::before {
     content: '';
     display: inline-block;
     position: absolute;
@@ -37,20 +38,26 @@ const StyledNavButton = styled.button`
   color: white;
   background-color: transparent;
   cursor: inherit;
+  z-index: 9999;
 
   &:hover ${Line}::before {
     transform: translate(1px, -1px);
   }
 `;
 
-const NavButton = () => {
+const NavButton = ({ onClick, navOpen }) => {
   return (
-    <StyledNavButton>
-      <Line />
-      <Line />
-      <Line />
+    <StyledNavButton onClick={onClick}>
+      <Line pos="top" navOpen={navOpen} />
+      <Line pos="middle" navOpen={navOpen} />
+      <Line pos="bottom" navOpen={navOpen} />
     </StyledNavButton>
   );
+};
+
+NavButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  navOpen: PropTypes.bool.isRequired,
 };
 
 export default NavButton;

@@ -3,6 +3,9 @@ import React, { createContext, useReducer } from 'react';
 // Initial global state
 const initialState = {
   editing: false,
+  header: {
+    navOpen: false,
+  },
 };
 
 // Create a store context for global state
@@ -13,6 +16,10 @@ const { Provider } = store;
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
+      case 'OPEN_NAV':
+        return { header: { navOpen: true } };
+      case 'CLOSE_NAV':
+        return { header: { navOpen: false } };
       case 'TOGGLE_EDITING':
         return { editing: !state.editing };
       default:

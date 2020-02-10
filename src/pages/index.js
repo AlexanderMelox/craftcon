@@ -82,12 +82,6 @@ const SVGImages = [
   },
 ];
 
-function getRandomPosition() {
-  const top = Math.floor(Math.random() * 100) + 1;
-  const left = Math.floor(Math.random() * 100) + 1;
-  return { top, left };
-}
-
 const Index = () => {
   return (
     <Layout>
@@ -103,7 +97,7 @@ const Index = () => {
       <Canvas>
         <Grid src="/svg/Grid.svg" />
         <Hand src="/hand.png" />
-        {SVGImages.map(svg => (
+        {/* {SVGImages.map(svg => (
           <CanvasImage
             top={svg.top}
             left={svg.left}
@@ -111,7 +105,7 @@ const Index = () => {
             src={`/svg/${svg.name}.svg`}
             alt=""
           />
-        ))}
+        ))} */}
       </Canvas>
     </Layout>
   );

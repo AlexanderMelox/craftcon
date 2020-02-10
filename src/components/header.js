@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import logo from '../images/logo.svg';
 import NavButton from './nav-button';
-import { moveAround1 } from '../utils/styles/keyframes';
+import Nav from './nav';
+import { useState, useDispatch } from '../hooks';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -22,10 +23,17 @@ const Logo = styled.img`
 `;
 
 const Header = () => {
+  const { header } = useState();
+  const dispatch = useDispatch();
+
+  const openNav = () =>
+    dispatch({ type: `${header.navOpen ? 'CLOSE' : 'OPEN'}_NAV` });
+
   return (
     <StyledHeader>
-      <NavButton />
+      <NavButton onClick={openNav} navOpen={header.navOpen} />
       <Logo src={logo} alt="Craftcon" />
+      <Nav navOpen={header.navOpen} />
     </StyledHeader>
   );
 };

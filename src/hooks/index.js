@@ -1,4 +1,6 @@
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { store } from '../store';
 
 export const useSiteMetadata = () => {
   const data = useStaticQuery(graphql`
@@ -25,3 +27,8 @@ export const useCloudinarySVGImages = () => {
   }
   return images;
 };
+
+// returns the dispatch function provided by the store context
+export const useDispatch = () => React.useContext(store).dispatch;
+// returns the store state
+export const useState = () => React.useContext(store).state;
