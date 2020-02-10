@@ -2,15 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
+function generateLineStyles(props) {
+  let cssString = ``;
+
+  if (props.navOpen) {
+    if (props.pos === 'middle') {
+      cssString += 'opacity: 0';
+    }
+    if (props.pos === 'top') {
+      cssString += `
+        transform: rotate(41deg) !important;
+      `;
+    }
+    if (props.pos === 'bottom') {
+      cssString += `
+        transform: rotate(-41deg) !important;
+      `;
+    }
+  }
+  console.log({ pos: props.pos, cssString });
+  return cssString;
+}
+
 const Line = styled.span`
   width: 2rem;
   height: 3px;
-  background-color: var(--yellow);
+  background-color: ${props =>
+    props.navOpen ? 'transparent' : 'var(--yellow)'};
   position: relative;
   z-index: 9999;
 
   &::before {
     content: '';
+    transform-origin: left;
     display: inline-block;
     position: absolute;
     width: 2rem;
@@ -21,6 +45,8 @@ const Line = styled.span`
     left: 0;
     z-index: 0;
     transition: all 0.2s;
+
+    ${props => generateLineStyles(props)}
   }
 `;
 

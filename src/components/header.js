@@ -19,7 +19,6 @@ const Logo = styled.img`
   position: relative;
   max-width: 100%;
   width: 10rem;
-  margin-left: 1rem;
 `;
 
 const Header = () => {
