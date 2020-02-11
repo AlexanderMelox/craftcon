@@ -20,7 +20,6 @@ function generateLineStyles(props) {
       `;
     }
   }
-  console.log({ pos: props.pos, cssString });
   return cssString;
 }
 

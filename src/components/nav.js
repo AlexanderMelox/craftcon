@@ -79,7 +79,7 @@ const Nav = ({ navOpen }) => {
       <StyledNav navOpen={navOpen}>
         <NavList>
           {navLinks.map(({ name, path }) => (
-            <li>
+            <li key={name}>
               <StyledLink to={path}>{name}</StyledLink>
             </li>
           ))}

@@ -5,6 +5,7 @@ import logo from '../images/logo.svg';
 import NavButton from './nav-button';
 import Nav from './nav';
 import { useState, useDispatch } from '../hooks';
+import { store } from '../store';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -22,17 +23,22 @@ const Logo = styled.img`
 `;
 
 const Header = () => {
-  const { header } = useState();
+  let { state } = useContext(store);
   const dispatch = useDispatch();
 
+  // TODO: remove state from global and state and make this its seperate context tree
+  if (!state) {
+    state = { header: { navOpen: false } };
+  }
+
   const openNav = () =>
-    dispatch({ type: `${header.navOpen ? 'CLOSE' : 'OPEN'}_NAV` });
+    dispatch({ type: `${state.header.navOpen ? 'CLOSE' : 'OPEN'}_NAV` });
 
   return (
     <StyledHeader>
-      <NavButton onClick={openNav} navOpen={header.navOpen} />
+      <NavButton onClick={openNav} navOpen={state.header.navOpen} />
       <Logo src={logo} alt="Craftcon" />
-      <Nav navOpen={header.navOpen} />
+      <Nav navOpen={state.header.navOpen} />
     </StyledHeader>
   );
 };

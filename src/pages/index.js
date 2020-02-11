@@ -97,15 +97,6 @@ const Index = () => {
       <Canvas>
         <Grid src="/svg/Grid.svg" />
         <Hand src="/hand.png" />
-        {/* {SVGImages.map(svg => (
-          <CanvasImage
-            top={svg.top}
-            left={svg.left}
-            width={svg.width}
-            src={`/svg/${svg.name}.svg`}
-            alt=""
-          />
-        ))} */}
       </Canvas>
     </Layout>
   );
