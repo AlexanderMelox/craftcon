@@ -15,11 +15,11 @@ const globalStyles = css`
     --yellow: #fef202;
     --blue: #0098c1;
 
-    --font-family: 'Questrial', sans-serif;
+    --font-family: 'Montserrat', sans-serif;
   }
 
   /* TODO: Make sure tiff approves of this font for a alternative */
-  @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Days+One|Maven+Pro|Montserrat:300,400,700,900&display=swap');
 
   @font-face {
     font-family: 'Monument Extended';
@@ -54,12 +54,12 @@ const globalStyles = css`
     background-attachment: fixed;
     min-height: 100vh;
     z-index: -9999;
+    font-family: var(--font-family);
   }
 
   body,
   html {
     margin: 0;
-    font-family: var(--font-family);
     line-height: 1.4;
     color: var(--black);
     font-weight: 400;
@@ -100,7 +100,7 @@ const StyledLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   min-height: 100vh;
 `;
 

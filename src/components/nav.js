@@ -44,28 +44,28 @@ const StyledLink = styled(Link)`
   line-height: 1.1;
 `;
 
+const navLinks = [
+  {
+    name: 'Home',
+    path: '/',
+  },
+  {
+    name: 'Schedule',
+    path: '/schedule',
+  },
+  {
+    name: 'Propose a Workshop',
+    path: '/workshop',
+  },
+  {
+    name: 'Gallery',
+    path: '/gallery',
+  },
+];
+
 const Nav = ({ navOpen }) => {
   const dispatch = useDispatch();
   const closeNav = () => dispatch({ type: 'CLOSE_NAV' });
-
-  const navLinks = [
-    {
-      name: 'Home',
-      path: '/',
-    },
-    {
-      name: 'Schedule',
-      path: '/schedule',
-    },
-    {
-      name: 'Propose a Workshop',
-      path: '/workshop',
-    },
-    {
-      name: 'Gallery',
-      path: '/gallery',
-    },
-  ];
 
   return (
     <>
@@ -80,7 +80,9 @@ const Nav = ({ navOpen }) => {
         <NavList>
           {navLinks.map(({ name, path }) => (
             <li key={name}>
-              <StyledLink to={path}>{name}</StyledLink>
+              <StyledLink onClick={closeNav} to={path}>
+                {name}
+              </StyledLink>
             </li>
           ))}
         </NavList>

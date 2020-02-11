@@ -1,26 +1,20 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
+import { TextStroke } from '../utils/styles/common';
+import rem from '../utils/rem';
 
 const Content = styled.div`
   margin-top: 2rem;
 `;
 
-const H1 = styled.h1`
-  background-image: linear-gradient(to right, var(--yellow), transparent);
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position: 20px 0%;
-  margin-bottom: 2rem;
-`;
-
 const Lead = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 `;
 
 const Canvas = styled.section`
   width: 100%;
-  margin-top: -3rem;
   position: relative;
   height: 60vh;
 `;
@@ -44,55 +38,42 @@ const Hand = styled(CanvasImage)`
   transition: all ease-in-out;
 `;
 
-const SVGImages = [
-  {
-    name: 'Black_cross',
-    top: 50,
-    left: 70,
-  },
-  {
-    name: 'Blue_checkerboard',
-  },
-  {
-    name: 'Blue_linerectanglegradient',
-  },
-  {
-    name: 'Blue_rectangle',
-  },
-  {
-    name: 'Red_circles',
-  },
-  {
-    name: 'Red_rectangle',
-  },
-  {
-    name: 'Red_rectanglegradient',
-  },
-  {
-    name: 'Yello_semicircle',
-  },
-  {
-    name: 'Yellow_arrow',
-  },
-  {
-    name: 'Yellow_circles',
-  },
-  {
-    name: 'Yellow_linesquare',
-  },
-];
+const Date = styled(TextStroke)`
+  display: block;
+  color: inherit;
+`;
+
+const CallToAction = styled.button`
+  display: block;
+  margin-left: auto;
+  margin-top: 3.125rem;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: ${rem(14)};
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0.3rem solid var(--yellow);
+  padding: 0.5rem 0.5rem;
+  transition: all 0.2s;
+
+  :hover {
+    background-color: var(--yellow);
+  }
+`;
 
 const Index = () => {
   return (
     <Layout>
       <Content>
-        <H1>Are you a maker?</H1>
         <Lead>
-          CraftCon is the place for you to teach, showcase your skills, and
-          learn from others. All are welcome to join us Craftcon for a day of
-          fun and making.
+          <TextStroke>Craftcon</TextStroke> is the place for you to teach,
+          showcase your skills, and learn from others. All are welcome to join
+          us Craftcon for a day of fun and making.
+          <Date>March 26</Date>
         </Lead>
-        {/* TODO: Add button for typeform here */}
+        <CallToAction>Propose a workshop</CallToAction>
       </Content>
       <Canvas>
         <Grid src="/svg/Grid.svg" />
