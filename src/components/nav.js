@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
 import { Link } from 'gatsby';
 import { useDispatch } from '../hooks';
 
 const StyledNav = styled.nav`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -18,24 +17,31 @@ const StyledNav = styled.nav`
   z-index: 9500;
   background: var(--yellow);
 
-  ${props =>
-    props.navOpen
+  ${({ navOpen }) =>
+    navOpen
       ? `opacity: 1;
-      visibility: visible;`
+      visibility: visible;
+      overflow: hidden;`
       : `opacity: 0;
   visibility: hidden;`}
 `;
 
 const NavList = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
-  height: 50vh;
+  height: calc(100vh - 6rem);
   list-style-type: none;
+  margin-top: 6rem;
   padding-left: 1rem;
+  overflow-y: scroll;
 `;
 
-const ListItem = styled.li``;
+const ListItem = styled.li`
+  :not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+`;
 const StyledLink = styled(Link)`
   color: var(--black);
   font-weight: bold;
@@ -68,26 +74,17 @@ const Nav = ({ navOpen }) => {
   const closeNav = () => dispatch({ type: 'CLOSE_NAV' });
 
   return (
-    <>
-      <Global
-        styles={css`
-          body {
-            overflow: hidden;
-          }
-        `}
-      />
-      <StyledNav navOpen={navOpen}>
-        <NavList>
-          {navLinks.map(({ name, path }) => (
-            <li key={name}>
-              <StyledLink onClick={closeNav} to={path}>
-                {name}
-              </StyledLink>
-            </li>
-          ))}
-        </NavList>
-      </StyledNav>
-    </>
+    <StyledNav navOpen={navOpen}>
+      <NavList>
+        {navLinks.map(({ name, path }) => (
+          <ListItem key={name}>
+            <StyledLink onClick={closeNav} to={path}>
+              {name}
+            </StyledLink>
+          </ListItem>
+        ))}
+      </NavList>
+    </StyledNav>
   );
 };
 

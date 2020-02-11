@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import { TextStroke } from '../utils/styles/common';
-import rem from '../utils/rem';
+import rem from '../utils/styles/rem';
 
 const Content = styled.div`
   margin-top: 2rem;
@@ -75,6 +75,7 @@ const Index = () => {
         </Lead>
         <CallToAction>Propose a workshop</CallToAction>
       </Content>
+      {/* TODO: This is where the p5 canvas will live */}
       <Canvas>
         <Grid src="/svg/Grid.svg" />
         <Hand src="/hand.png" />
