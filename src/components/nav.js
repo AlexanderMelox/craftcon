@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+import mq from '../utils/styles/breakpoints';
+import rem from '../utils/styles/rem';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -11,18 +13,32 @@ const StyledNav = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  transition: all 0.2s;
-
+  transition: opacity 0.2s;
+  opacity: 0;
+  visibility: hidden;
   z-index: 9500;
   background: var(--yellow);
 
   ${({ navOpen }) =>
-    navOpen
-      ? `opacity: 1;
+    navOpen &&
+    `opacity: 1;
       visibility: visible;
-      overflow: hidden;`
-      : `opacity: 0;
-  visibility: hidden;`}
+      overflow: hidden;`}
+
+  ${mq[0]} {
+    transition: none;
+
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    width: 100vw;
+    height: ${rem(40)};
+  }
 `;
 
 const NavList = styled.ul`
@@ -34,11 +50,28 @@ const NavList = styled.ul`
   margin-top: 6rem;
   padding-left: 1rem;
   overflow-y: scroll;
+
+  ${mq[0]} {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+
+    margin-top: 0rem;
+    overflow-y: initial;
+    padding-left: 0;
+  }
 `;
 
 const ListItem = styled.li`
   :not(:last-of-type) {
     margin-bottom: 2rem;
+  }
+
+  ${mq[0]} {
+    &:not(:last-of-type) {
+      margin-bottom: 0;
+    }
   }
 `;
 const StyledLink = styled(Link)`
@@ -46,7 +79,17 @@ const StyledLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   font-size: 3rem;
+  text-transform: uppercase;
   line-height: 1.1;
+
+  ${mq[0]} {
+    font-size: ${rem(14)};
+    padding: ${rem(8)} ${rem(50)};
+
+    &.active {
+      border-bottom: ${rem(5)} solid var(--yellow);
+    }
+  }
 `;
 
 const navLinks = [
@@ -74,7 +117,7 @@ const Nav = ({ navOpen, closeNav }) => {
       <NavList>
         {navLinks.map(({ name, path }) => (
           <ListItem key={name}>
-            <StyledLink onClick={closeNav} to={path}>
+            <StyledLink activeClassName="active" onClick={closeNav} to={path}>
               {name}
             </StyledLink>
           </ListItem>
