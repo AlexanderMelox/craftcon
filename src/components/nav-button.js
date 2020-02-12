@@ -89,7 +89,8 @@ const NavButton = ({ openNav, navOpen, closeNav }) => {
 };
 
 NavButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  openNav: PropTypes.func.isRequired,
+  closeNav: PropTypes.func.isRequired,
   navOpen: PropTypes.bool.isRequired,
 };
 

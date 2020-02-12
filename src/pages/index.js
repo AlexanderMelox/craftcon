@@ -19,9 +19,9 @@ const Container = styled.div`
 
 const Content = styled.div`
   margin-top: 2rem;
-  grid-area: content;
 
   ${mq[0]} {
+    grid-area: content;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,10 @@ const Canvas = styled.section`
   width: 100%;
   position: relative;
   height: 60vh;
-  grid-area: canvas;
+
+  ${mq[0]} {
+    grid-area: canvas;
+  }
 `;
 
 const CanvasImage = styled.img`
