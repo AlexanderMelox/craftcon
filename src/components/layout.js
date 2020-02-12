@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import mq from '../utils/styles/breakpoints';
 
 import Header from './header';
 import SEO from './seo';
@@ -102,6 +103,10 @@ const StyledLayout = styled.div`
   grid-template-rows: auto 1fr;
   padding: 0 1.5rem;
   min-height: 100vh;
+
+  ${mq[0]} {
+    padding: 0;
+  }
 `;
 
 const Layout = ({ children }) => {

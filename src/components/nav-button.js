@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import mq from '../utils/styles/breakpoints';
 
 function generateLineStyles(props) {
   let cssString = ``;
@@ -67,6 +68,11 @@ const StyledNavButton = styled.button`
 
   &:hover ${Line}::before {
     transform: translate(1px, -1px);
+  }
+
+  /* Small desktop */
+  ${mq[0]} {
+    display: none;
   }
 `;
 

@@ -4,8 +4,9 @@ import styled from '@emotion/styled';
 import logo from '../images/logo.svg';
 import NavButton from './nav-button';
 import Nav from './nav';
-import { useState, useDispatch } from '../hooks';
+import { useDispatch } from '../hooks';
 import { store } from '../store';
+import mq from '../utils/styles/breakpoints';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -13,6 +14,13 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 2rem 0;
   position: relative;
+
+  ${mq[0]} {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const Logo = styled.img`
@@ -20,6 +28,10 @@ const Logo = styled.img`
   position: relative;
   max-width: 100%;
   width: 10rem;
+
+  ${mq[0]} {
+    display: none;
+  }
 `;
 
 const Header = () => {
