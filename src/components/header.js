@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import logo from '../images/logo.svg';
 import NavButton from './nav-button';
 import Nav from './nav';
-import { useDispatch } from '../hooks';
-import { store } from '../store';
 import mq from '../utils/styles/breakpoints';
 
 const StyledHeader = styled.header`
@@ -35,22 +33,16 @@ const Logo = styled.img`
 `;
 
 const Header = () => {
-  let { state } = useContext(store);
-  const dispatch = useDispatch();
+  const [navOpen, setNavOpen] = useState(false);
 
-  // TODO: remove state from global and state and make this its seperate context tree
-  if (!state) {
-    state = { header: { navOpen: false } };
-  }
-
-  const openNav = () =>
-    dispatch({ type: `${state.header.navOpen ? 'CLOSE' : 'OPEN'}_NAV` });
+  const openNav = () => setNavOpen(true);
+  const closeNav = () => setNavOpen(false);
 
   return (
     <StyledHeader>
-      <NavButton onClick={openNav} navOpen={state.header.navOpen} />
+      <NavButton openNav={openNav} navOpen={navOpen} closeNav={closeNav} />
       <Logo src={logo} alt="Craftcon" />
-      <Nav navOpen={state.header.navOpen} />
+      <Nav closeNav={closeNav} navOpen={navOpen} />
     </StyledHeader>
   );
 };

@@ -13,6 +13,7 @@ const Container = styled.div`
     height: 100vh;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'canvas content';
+    overflow: hidden;
   }
 `;
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
-import { useDispatch } from '../hooks';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -69,10 +68,7 @@ const navLinks = [
   },
 ];
 
-const Nav = ({ navOpen }) => {
-  const dispatch = useDispatch();
-  const closeNav = () => dispatch({ type: 'CLOSE_NAV' });
-
+const Nav = ({ navOpen, closeNav }) => {
   return (
     <StyledNav navOpen={navOpen}>
       <NavList>

@@ -76,9 +76,11 @@ const StyledNavButton = styled.button`
   }
 `;
 
-const NavButton = ({ onClick, navOpen }) => {
+const NavButton = ({ openNav, navOpen, closeNav }) => {
+  const toggleButton = () => (navOpen ? closeNav() : openNav());
+
   return (
-    <StyledNavButton onClick={onClick}>
+    <StyledNavButton onClick={toggleButton}>
       <Line pos="top" navOpen={navOpen} />
       <Line pos="middle" navOpen={navOpen} />
       <Line pos="bottom" navOpen={navOpen} />
