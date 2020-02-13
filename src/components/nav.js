@@ -49,7 +49,6 @@ const NavList = styled.ul`
   list-style-type: none;
   margin-top: 6rem;
   padding-left: 1rem;
-  overflow-y: scroll;
 
   ${mq[0]} {
     justify-content: center;
