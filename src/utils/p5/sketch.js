@@ -4,8 +4,8 @@ const images = [];
 const sketch = p => {
   function getCanvasDimensions() {
     const canvas = {
-      width: (window.innerWidth / 3) * 2,
-      height: window.innerHeight - 142,
+      width: window.innerWidth / 2,
+      height: window.innerHeight,
       defaultBackgroundColor: 50,
     };
     return canvas;
@@ -32,6 +32,7 @@ const sketch = p => {
     selectedShape = 0;
   };
 
+  // This function is to sync React state with P5. When the state changes in React, p5 will redraw the canvas.
   p.myCustomRedrawAccordingToNewPropsHandler = function(newProps) {
     if (newProps.selectedShape) {
       selectedShape = newProps.selectedShape;

@@ -4,6 +4,8 @@ import Layout from '../components/layout';
 import { TextStroke } from '../utils/styles/common';
 import rem from '../utils/styles/rem';
 import mq from '../utils/styles/breakpoints';
+import Sketch from '../components/Sketch';
+import sketch from '../utils/p5/sketch';
 
 const Container = styled.div`
   display: grid;
@@ -117,9 +119,8 @@ const Index = () => {
           </Lead>
           <CallToAction>Propose a workshop</CallToAction>
         </Content>
-        {/* TODO: This is where the p5 canvas will live */}
         <Canvas>
-          <Grid src="/svg/Grid.svg" />
+          <Sketch sketch={sketch} />
         </Canvas>
       </Container>
     </Layout>
