@@ -77,7 +77,7 @@ const Hand = styled(CanvasImage)`
 `;
 
 const Date = styled(TextStroke)`
-  display: block;
+  display: inline-block;
   color: inherit;
 `;
 
@@ -93,16 +93,17 @@ const CallToAction = styled.button`
   font-weight: 700;
   text-transform: uppercase;
   border: 0.3rem solid var(--yellow);
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 5rem;
   transition: all 0.2s;
 
   :hover {
     background-color: var(--yellow);
   }
 
+  
   ${mq[0]} {
     margin-top: ${rem(20)};
-    margin-right: ${rem(20)};
+    margin-right: ${rem(50)};
   }
 `;
 
@@ -112,10 +113,9 @@ const Index = () => {
       <Container>
         <Content>
           <Lead>
-            <TextStroke>Craftcon</TextStroke> is the place for you to teach,
-            showcase your skills, and learn from others. All are welcome to join
-            us Craftcon for a day of fun and making.
-            <Date>March 26</Date>
+            <TextStroke>CRAFTCON</TextStroke> is the place for you to teach,
+            showcase your skills, and learn from others. Join us for a day of fun and 
+            making on <Date>March 26</Date>
           </Lead>
           <CallToAction>Propose a workshop</CallToAction>
         </Content>
