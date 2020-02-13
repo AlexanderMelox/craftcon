@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import mq from '../utils/styles/breakpoints';
-import rem from '../utils/styles/rem';
+import React from "react";
+import styled from "@emotion/styled";
+import { Link } from "gatsby";
+import mq from "../utils/styles/breakpoints";
+import rem from "../utils/styles/rem";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -75,7 +75,6 @@ const ListItem = styled.li`
 `;
 const StyledLink = styled(Link)`
   color: var(--black);
-  font-weight: bold;
   text-decoration: none;
   font-size: 3rem;
   text-transform: uppercase;
@@ -93,21 +92,21 @@ const StyledLink = styled(Link)`
 
 const navLinks = [
   {
-    name: 'Home',
-    path: '/',
+    name: "Home",
+    path: "/"
   },
   {
-    name: 'Schedule',
-    path: '/schedule',
+    name: "Schedule",
+    path: "/schedule"
   },
   {
-    name: 'Propose a Workshop',
-    path: '/workshop',
+    name: "Propose a Workshop",
+    path: "/workshop"
   },
   {
-    name: 'Gallery',
-    path: '/gallery',
-  },
+    name: "Gallery",
+    path: "/gallery"
+  }
 ];
 
 const Nav = ({ navOpen, closeNav }) => {

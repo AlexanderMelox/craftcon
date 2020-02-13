@@ -26,14 +26,8 @@ const sketch = p => {
   function placeImages() {
     artifacts.forEach(artifact => {
       artifact.position = p.createVector(
-        random(
-          0 + artifact.image.width / 2,
-          canvasWidth - artifact.image.width / 2
-        ),
-        random(
-          0 + artifact.image.height / 2,
-          canvasHeight - artifact.image.height / 2
-        )
+        random(0 + artifact.width / 2, canvasWidth - artifact.width / 2),
+        random(0 + artifact.height / 2, canvasHeight - artifact.height / 2)
       );
     });
   }
@@ -51,14 +45,14 @@ const sketch = p => {
     artifacts.forEach(artifact => {
       artifact.position.add(artifact.momentum);
       if (
-        artifact.position.x >= canvasWidth - artifact.image.width / 2 ||
-        artifact.position.x <= 0 + artifact.image.width / 2
+        artifact.position.x >= canvasWidth - artifact.width / 2 ||
+        artifact.position.x <= 0 + artifact.width / 2
       ) {
         artifact.momentum.x = -1 * artifact.momentum.x;
       }
       if (
-        artifact.position.y >= canvasHeight - artifact.image.height / 2 ||
-        artifact.position.y <= 0 + artifact.image.height / 2
+        artifact.position.y >= canvasHeight - artifact.height / 2 ||
+        artifact.position.y <= 0 + artifact.height / 2
       ) {
         artifact.momentum.y = -1 * artifact.momentum.y;
       }
@@ -67,16 +61,41 @@ const sketch = p => {
 
   function renderImages() {
     artifacts.forEach(artifact => {
-      p.image(artifact.image, artifact.position.x, artifact.position.y);
+      p.image(
+        artifact.image,
+        artifact.position.x,
+        artifact.position.y,
+        artifact.width,
+        artifact.height
+      );
     });
   }
 
   // preloads all the svg images to use
   p.preload = function() {
     artifacts = [
-      { image: p.loadImage("/svg/Blue_semicircle.svg") },
-      { image: p.loadImage("/svg/red_circles.svg") },
-      { image: p.loadImage("/svg/Blue_linerectanglegradient.svg") }
+      { image: p.loadImage("/svg/Blue_semicircle.svg"), width: 60, height: 30 },
+      { image: p.loadImage("/svg/red_circles.svg"), width: 30, height: 30 },
+      {
+        image: p.loadImage("/svg/Blue_linerectanglegradient.svg"),
+        width: 200,
+        height: 40
+      },
+      {
+        image: p.loadImage("/svg/Black_cross.svg"),
+        width: 40,
+        height: 40
+      },
+      {
+        image: p.loadImage("/svg/Blue_checkerboard.svg"),
+        width: 70,
+        height: 70
+      },
+      {
+        image: p.loadImage("/svg/Blue_rectangle.svg"),
+        width: 40,
+        height: 40
+      }
     ];
   };
 
@@ -91,7 +110,7 @@ const sketch = p => {
   p.myCustomRedrawAccordingToNewPropsHandler = function(newProps) {};
 
   p.draw = function() {
-    p.background(300);
+    p.background(252.5);
     moveImages();
     renderImages();
   };
