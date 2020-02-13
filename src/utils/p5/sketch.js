@@ -1,10 +1,15 @@
+import { breakpoints } from '../styles/breakpoints';
+
 // p5 variables
 const images = [];
 
 const sketch = p => {
   function getCanvasDimensions() {
     const canvas = {
-      width: window.innerWidth / 2,
+      width:
+        window.innerWidth > breakpoints[0]
+          ? window.innerWidth / 2 // if the window is greater than 1000px => render canvas at 50%
+          : window.innerWidth - 48, // on mobile make canvas 100% - 48px of padding
       height: window.innerHeight,
       defaultBackgroundColor: 50,
     };
@@ -15,15 +20,7 @@ const sketch = p => {
   let selectedShape;
 
   // preloads all the svg images to use
-  p.preload = function() {
-    for (let i = 1; i <= 7; i++) {
-      let img = p.loadImage(
-        `https://res.cloudinary.com/alexander-melo-assets/image/upload/v1580320841/Craftcon-assets/images/${i}.svg`
-      );
-      images.push(img);
-    }
-    console.log('Images successfully loaded', images);
-  };
+  p.preload = function() {};
 
   p.setup = function() {
     p.createCanvas(canvas.width, canvas.height);
@@ -39,20 +36,11 @@ const sketch = p => {
     }
   };
 
-  p.draw = function() {
-    // p.background(canvas.defaultBackgroundColor);
-    // p.image(images[selectedShape], p.mouseX, p.mouseY);
-  };
+  p.draw = function() {};
 
-  p.mousePressed = function() {
-    p.image(images[selectedShape], p.mouseX, p.mouseY);
-  };
+  p.mousePressed = function() {};
 
-  p.mouseDragged = function() {
-    if (p.frameCount % 10 === 1) {
-      p.image(images[selectedShape], p.mouseX, p.mouseY);
-    }
-  };
+  p.mouseDragged = function() {};
 
   p.windowResized = function() {
     const canvas = getCanvasDimensions();
