@@ -66,7 +66,6 @@ const globalStyles = css`
     color: var(--black);
     font-weight: 400;
     min-height: 100vh;
-    cursor: url('http://bringerp.free.fr/Files/RotMG/cursor.gif'), pointer;
 
     /* removes margin top for main gatsby div */
     > div {
