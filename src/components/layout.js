@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Global, css } from "@emotion/core";
-import styled from "@emotion/styled";
-import mq from "../utils/styles/breakpoints";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
+import mq from '../utils/styles/breakpoints';
 
-import Header from "./header";
-import SEO from "./seo";
+import Header from './header';
+import SEO from './seo';
 
 const globalStyles = css`
   :root {
@@ -16,25 +16,25 @@ const globalStyles = css`
     --yellow: #fef202;
     --blue: #0098c1;
 
-    --font-family: "Monument Extended", "Montserrat", sans-serif;
+    --font-family: 'Monument Extended', 'Montserrat', sans-serif;
   }
 
   /* TODO: Make sure tiff approves of this font for a alternative */
-  @import url("https://fonts.googleapis.com/css?family=Days+One|Maven+Pro|Montserrat:300,400,700,900&display=swap");
+  @import url('https://fonts.googleapis.com/css?family=Days+One|Maven+Pro|Montserrat:300,400,700,900&display=swap');
 
   @font-face {
-    font-family: "Monument Extended";
+    font-family: 'Monument Extended';
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/MonumentExtended-Regular.otf") format("otf"),
-      url("../fonts/MonumentExtended-Regular.ttf") format("ttf");
+    src: url('../fonts/MonumentExtended-Regular.otf') format('otf'),
+      url('../fonts/MonumentExtended-Regular.ttf') format('ttf');
   }
   @font-face {
-    font-family: "Monument Extended";
+    font-family: 'Monument Extended';
     font-style: normal;
     font-weight: bold;
-    src: url("../fonts/MonumentExtended-Ultrabold.otf") format("otf"),
-      url("../fonts/MonumentExtended-Ultrabold.ttf") format("ttf");
+    src: url('../fonts/MonumentExtended-Ultrabold.otf') format('otf'),
+      url('../fonts/MonumentExtended-Ultrabold.ttf') format('ttf');
   }
 
   ::selection {
@@ -51,7 +51,7 @@ const globalStyles = css`
   }
 
   body {
-    background-image: url("/paper.jpg");
+    background-image: url('/paper.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -67,7 +67,7 @@ const globalStyles = css`
     color: var(--black);
     font-weight: 400;
     min-height: 100vh;
-    cursor: url("http://bringerp.free.fr/Files/RotMG/cursor.gif"), pointer;
+    cursor: url('http://bringerp.free.fr/Files/RotMG/cursor.gif'), pointer;
 
     /* removes margin top for main gatsby div */
     > div {
@@ -123,7 +123,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
