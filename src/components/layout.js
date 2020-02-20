@@ -50,7 +50,6 @@ const globalStyles = css`
 
   body {
     background-image: url('/paper.jpg');
-
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
