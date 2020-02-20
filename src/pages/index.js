@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Layout from '../components/layout';
-import { TextStroke } from '../utils/styles/common';
-import rem from '../utils/styles/rem';
-import mq from '../utils/styles/breakpoints';
-import Sketch from '../components/Sketch';
-import sketch from '../utils/p5/sketch';
+import React from "react";
+import styled from "@emotion/styled";
+import Layout from "../components/layout";
+import { TextStroke } from "../utils/styles/common";
+import rem from "../utils/styles/rem";
+import mq from "../utils/styles/breakpoints";
+import Sketch from "../components/Sketch";
+import sketch from "../utils/p5/sketch";
 
 const Container = styled.div`
   display: grid;
@@ -14,7 +14,7 @@ const Container = styled.div`
   ${mq[0]} {
     height: 100vh;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'canvas content';
+    grid-template-areas: "canvas content";
     overflow: hidden;
   }
 `;
@@ -36,11 +36,13 @@ const Content = styled.div`
 
 const Lead = styled.p`
   font-size: 1.3rem;
-  font-weight: 600;
-  line-height: 1.1;
+  font-weight: normal;
+  line-height: 1.5;
 
+  padding-left: 2rem;
+  padding-right: 2rem;
   ${mq[0]} {
-    font-size: ${rem(36)};
+    font-size: ${rem(33)};
   }
 `;
 
@@ -87,20 +89,19 @@ const CallToAction = styled.button`
   margin-top: 3.125rem;
   outline: none;
   border: none;
-  background: transparent;
+  background-color: rgba(254, 242, 2, 0.5);
+  background-blend-mode: lighten;
   font-size: ${rem(14)};
   font-family: inherit;
-  font-weight: 700;
   text-transform: uppercase;
-  border: 0.3rem solid var(--yellow);
-  padding: 0.5rem 5rem;
+  padding: 0.8rem 5rem;
   transition: all 0.2s;
 
   :hover {
     background-color: var(--yellow);
+    opacity: 1;
   }
 
-  
   ${mq[0]} {
     margin-top: ${rem(20)};
     margin-right: ${rem(50)};
@@ -114,8 +115,8 @@ const Index = () => {
         <Content>
           <Lead>
             <TextStroke>CRAFTCON</TextStroke> is the place for you to teach,
-            showcase your skills, and learn from others. Join us for a day of fun and 
-            making on <Date>March 26</Date>
+            showcase your skills, and learn from others. Join us for a day of
+            fun and making on <Date>March 26</Date>
           </Lead>
           <CallToAction>Propose a workshop</CallToAction>
         </Content>
