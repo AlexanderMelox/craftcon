@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "@emotion/styled";
-import Layout from "../components/layout";
-import { TextStroke } from "../utils/styles/common";
-import rem from "../utils/styles/rem";
-import mq from "../utils/styles/breakpoints";
-import Sketch from "../components/Sketch";
-import sketch from "../utils/p5/sketch";
+import React from 'react';
+import styled from '@emotion/styled';
+import Layout from '../components/layout';
+import { TextStroke } from '../utils/styles/common';
+import rem from '../utils/styles/rem';
+import mq from '../utils/styles/breakpoints';
+import Sketch from '../components/Sketch';
+import sketch from '../utils/p5/sketch';
 
 const Container = styled.div`
   display: grid;
@@ -14,7 +14,7 @@ const Container = styled.div`
   ${mq[0]} {
     height: 100vh;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "canvas content";
+    grid-template-areas: 'canvas content';
     overflow: hidden;
   }
 `;
@@ -83,24 +83,21 @@ const Date = styled(TextStroke)`
   color: inherit;
 `;
 
-const CallToAction = styled.button`
-  display: block;
+const CallToAction = styled.a`
+  display: inline-block;
   margin-left: auto;
   margin-top: 3.125rem;
   outline: none;
   border: none;
-  background-color: rgba(254, 242, 2, 0.5);
+  background-color: var(--yellow);
   background-blend-mode: lighten;
   font-size: ${rem(14)};
   font-family: inherit;
   text-transform: uppercase;
   padding: 0.8rem 5rem;
   transition: all 0.2s;
-
-  :hover {
-    background-color: var(--yellow);
-    opacity: 1;
-  }
+  text-decoration: none;
+  color: var(--black);
 
   ${mq[0]} {
     margin-top: ${rem(20)};
@@ -118,7 +115,9 @@ const Index = () => {
             showcase your skills, and learn from others. Join us for a day of
             fun and making on <Date>March 26</Date>
           </Lead>
-          <CallToAction>Propose a workshop</CallToAction>
+          <CallToAction href="https://jamesxie.typeform.com/to/AuWIrz">
+            Propose a workshop
+          </CallToAction>
         </Content>
         <Canvas>
           <Sketch sketch={sketch} />
