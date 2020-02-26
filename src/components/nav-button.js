@@ -52,6 +52,7 @@ const Line = styled.span`
 
 const StyledNavButton = styled.button`
   display: flex;
+  display: none;
   justify-content: space-between;
   flex-direction: column;
   position: fixed;

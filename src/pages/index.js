@@ -8,22 +8,15 @@ import Sketch from '../components/Sketch';
 import sketch from '../utils/p5/sketch';
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-
-  ${mq[0]} {
-    height: 100vh;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'canvas content';
-    overflow: hidden;
-  }
+  overflow: hidden;
 `;
 
 const Content = styled.div`
-  margin-top: 2rem;
+  margin-top: 10rem;
+  z-index: 20;
 
   ${mq[0]} {
-    grid-area: content;
+    position: absolute;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -31,6 +24,8 @@ const Content = styled.div`
     margin-top: 0;
     padding-left: ${rem(40)};
     padding-bottom: ${rem(40)};
+    left: 50%;
+    top: 0;
   }
 `;
 
@@ -39,39 +34,39 @@ const Lead = styled.p`
   font-weight: normal;
   line-height: 1.5;
 
-  padding-left: 2rem;
-  padding-right: 2rem;
   ${mq[0]} {
     font-size: ${rem(33)};
+    padding: 0 2rem;
   }
 `;
 
 const Canvas = styled.section`
-  width: 100%;
+  display: none;
   position: relative;
-  height: 60vh;
 
   ${mq[0]} {
-    grid-area: canvas;
+    display: block;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
   }
 `;
 
-const CanvasImage = styled.img`
-  max-width: 100%;
-  width: 15rem;
-  position: absolute;
-  top: ${props => props.top};
-`;
+const Hand = styled.img`
+  display: none;
+  width: 100%;
+  max-width: ${rem(350)};
 
-// TODO: put hand in after p5 canvas gets added
-const Hand = styled(CanvasImage)`
-  width: 50%;
-  top: 50%;
-  left: 50%;
-  max-width: 20rem;
-  transform: translate(-50%, -50%);
-  z-index: 5000;
-  transition: all ease-in-out;
+  ${mq[0]} {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 const Date = styled(TextStroke)`
@@ -82,12 +77,12 @@ const Date = styled(TextStroke)`
 const CallToAction = styled.a`
   display: inline-block;
   margin-left: auto;
-  margin-top: 3.125rem;
+  margin-top: 1rem;
   outline: none;
   border: none;
   background-color: var(--yellow);
   background-blend-mode: lighten;
-  font-size: ${rem(14)};
+  font-size: ${rem(10)};
   font-family: inherit;
   text-transform: uppercase;
   padding: 0.8rem 5rem;
@@ -98,6 +93,7 @@ const CallToAction = styled.a`
   ${mq[0]} {
     margin-top: ${rem(20)};
     margin-right: ${rem(50)};
+    font-size: ${rem(14)};
   }
 `;
 
@@ -116,6 +112,7 @@ const Index = () => {
           </CallToAction>
         </Content>
         <Canvas>
+          <Hand src="/hand.png" />
           <Sketch sketch={sketch} />
         </Canvas>
       </Container>
