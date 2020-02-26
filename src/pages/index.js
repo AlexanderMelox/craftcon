@@ -63,10 +63,6 @@ const CanvasImage = styled.img`
   top: ${props => props.top};
 `;
 
-const Grid = styled(CanvasImage)`
-  width: 100%;
-`;
-
 // TODO: put hand in after p5 canvas gets added
 const Hand = styled(CanvasImage)`
   width: 50%;
