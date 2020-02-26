@@ -25,19 +25,18 @@ const sketch = p => {
     }
   }
 
-  let { width: canvasWidth, height: canvasHeight } = getCanvasDimensions();
-
   function getCanvasDimensions() {
     const canvas = {
       width:
         window.innerWidth > breakpoints[0]
-          ? window.innerWidth / 2 // if the window is greater than 1000px => render canvas at 50%
+          ? window.innerWidth // if the window is greater than 1000px => render canvas at 50%
           : window.innerWidth - 48, // on mobile make canvas 100% - 48px of padding
       height: window.innerHeight,
-      defaultBackgroundColor: 50,
     };
     return canvas;
   }
+
+  let { width: canvasWidth, height: canvasHeight } = getCanvasDimensions();
 
   // global variables
   let loadedShapes = [],
