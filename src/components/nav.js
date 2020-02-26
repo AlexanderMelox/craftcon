@@ -6,6 +6,7 @@ import rem from '../utils/styles/rem';
 
 const StyledNav = styled.nav`
   display: flex;
+  display: none;
   justify-content: center;
   align-items: flex-start;
   width: 100vw;
